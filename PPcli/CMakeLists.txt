@@ -1,0 +1,11 @@
+cmake_minimum_required (VERSION 3.21)
+
+add_library(PPcli
+"main.cpp")
+target_compile_features(PPcli PUBLIC cxx_std_20)
+
+if(CMAKE_COMPILER_IS_GNUCXX)
+set_target_properties(PPcli PROPERTIES COMPILE_FLAGS "-ftemplate-backtrace-limit=0 -fconcepts-diagnostics-depth=5")
+endif()
+
+#install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}" DESTINATION "PPcli/include" FILES_MATCHING PATTERN "*.hpp")
